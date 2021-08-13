@@ -1,13 +1,254 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  margin:0;
+  box-sizing: border-box;
+  font-family: 'Lucida Sans', sans-serif;
+  text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  color: #252525;
+  background: #ebe7e7;
+}
+
+.active {
+  color: #764ABD;
+  border-bottom: 3px solid #764ABD;
+}
+
+.nav {
+  padding: 20px;
+  max-width: 800px;
+  border-left: 2px solid #252525;
+  border-right: 2px solid #252525;
+  background-color: #fff;
+  color: #252525;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+.nav ul {
+  padding-left: 0;
+}
+
+.nav li {
+  font-size: 1.2rem;
+  font-weight: bold;
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.component {
+  padding: 20px;
+  border: 2px solid #252525;
+  background-color: #fff;
+  border-bottom-left-radius: 3%;
+  border-bottom-right-radius: 3%;
+}
+
+.component .header h2 {
+  padding: 20px;
+}
+
+.component .header span {
+  padding: 20px;
+  font-size: 1.2rem;
+}
+
+.component .main {
+  padding: 20px;
+}
+
+.component .main h3 {
+  padding: 20px;
+}
+
+.component .main img {
+  width: 50%;
+  height: 50%;
+}
+
+.component .main select {
+  padding: 15px;
+  text-align-last:right;
+  width: 100%;
+  padding-right: 46%;
+  direction: rtl;
+  margin-bottom: 2%;
+  font-size: 1.1rem;
+}
+
+.component .main button {
+  padding: 15px;
+  width: 100%;
+  background-color: #764ABD;
+  border: 0px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.home-active {
+  background-color: #fff;
+  color: #764ABD;
+  border-bottom: 3px solid #764ABD;
+}
+
+.top {
+  max-width: 800px;
+  background-color: #fff;
+  color: #252525;
+  border-top: 2px solid #252525;
+  border-left: 2px solid #252525;
+  border-right: 2px solid #252525;
+}
+
+.top ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-decoration: none;
+}
+
+.top li:first-child {
+  padding-left: 0;
+}
+
+.top ul {
+  padding-left: 0;
+}
+
+.top li {
+  font-size: 0.9rem;
+  font-weight: bold;
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.home-question,
+.leader-card {
+  border: 1px solid #b3b3b3;
+  border-radius: 5%;
+}
+
+.home-question .card-header {
+  text-align: left;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 15px;
+  border-bottom: 1px solid #b3b3b3;
+}
+
+.home-question .card-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.home-question .card-main .avatar {
+  width: 30%;
+}
+
+.home-question .card-main img {
+  width: 100%;
+}
+
+.card-main .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;  
+  width: 70%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-left: 1px solid #b3b3b3;
+}
+
+.home-question .card-main .text button {
+  padding: 9px;
+  width: 90%;
+  background-color: #764ABD;
+  color: #fff;
+  border: 0px;
+  font-weight: bold;
+}
+
+.new-q .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.new-q .main .text {
+  padding-bottom: 15px;
+  text-align: left;
+}
+
+.new-q .main input {
+  padding: 15px;
+}
+
+.new-q .main h3 {
+  padding: 15px;
+}
+
+.leader-card .card-main {
+  display: flex;
+  flex-direction: row;
+}
+
+.leader-card .card-main .avatar {
+  width: 30%;
+}
+
+.leader-card img {
+  width: 100%;
+}
+
+.leader-card .card-main .text {
+  width: 50%;
+}
+
+.leader-card .card-main .score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-left: 1px solid #b3b3b3;
+}
+
+.leader-card .score-value {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;  
+  height: 60%;
+  width: 60%;
+  border: 1px solid #b3b3b3;
+}
+
+.leader-card h5 {
+  font-weight: bolder;
+  padding: 10px;
+  border-bottom: 1px solid #b3b3b3;
+}
+
+.leader-card .score p {
+  padding: 10px;
 }
