@@ -1,7 +1,10 @@
 import { hideLoading, showLoading } from "react-redux-loading"
 import { _getQuestions, _getUsers } from "../utls/_DATA"
+import { setAuthedUser } from "./authedUser"
 
 export const RECEIVE_DATA = 'RECEIVE_DATA'
+export const SAVE_ANSWER = 'SAVE_ANSWER'
+export const ADD_QUESTION = 'ADD_QUESTION'
 
 function receiveData (questions, users) {
     return {
@@ -19,6 +22,7 @@ export function handleInitialData () {
             _getUsers()
         ]).then(([ questions, users]) => {
             dispatch(receiveData(questions, users))
+            dispatch(setAuthedUser('sarahedo'))
             dispatch(hideLoading())
         })
     }

@@ -1,5 +1,4 @@
-import { SAVE_ANSWER, ADD_QUESTION } from '../actions/questions'
-import { RECEIVE_DATA } from '../actions/shared'
+import { RECEIVE_DATA, ADD_QUESTION, SAVE_ANSWER } from '../actions/shared'
 
 export default function questions (state = {}, action) {
     switch (action.type) {
@@ -17,13 +16,10 @@ export default function questions (state = {}, action) {
                 [qid]: {
                     ...state[qid],
                     [answer]: {
-                        ...[qid][answer],
-                        votes: [
-                            ...state[qid][answer].votes,
-                            authedUser
-                        ]
+                      ...state[qid][answer],
+                      votes: state[qid][answer].votes.concat([authedUser])
                     }
-                }
+                  }
             }
         
         case RECEIVE_DATA:

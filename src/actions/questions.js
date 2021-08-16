@@ -1,8 +1,6 @@
 import { _saveQuestionAnswer, _saveQuestion } from '../utls/_DATA'
 import { showLoading, hideLoading } from 'react-redux-loading'
-
-export const SAVE_ANSWER = 'SAVE_ANSWER'
-export const ADD_QUESTION = 'ADD_QUESTION'
+import { ADD_QUESTION, SAVE_ANSWER } from './shared'
 
 function addQuestion (question) {
     return {
@@ -11,10 +9,10 @@ function addQuestion (question) {
     }
 }
 
-function saveAnswer ({id, authedUser, answer}) {
+function saveAnswer ({qid, answer, authedUser}) {
     return {
         type: SAVE_ANSWER,
-        id,
+        qid,
         authedUser,
         answer,
     }
@@ -22,7 +20,7 @@ function saveAnswer ({id, authedUser, answer}) {
 
 export function handleSaveQuestion (question) {
     return (dispatch, getState) =>{
-        const { authedUser } = getState();
+        const { authedUser } = getState()
         question.author = authedUser
 
         dispatch(showLoading())
@@ -33,14 +31,18 @@ export function handleSaveQuestion (question) {
     }
 }
 
-export function handleSaveAnswer ({qid, answer})  {
+export function handleSaveAnswer (qid, answer)  {
     return (dispatch, getState) => {
-        const { authedUser } = getState();
-
+        const { authedUser } = getState()
+        const info = {
+            authedUser, 
+            qid, 
+            answer,
+        }
         dispatch(showLoading())
 
-        return _saveQuestionAnswer({authedUser, qid, answer})
-            .then((question) => dispatch(saveAnswer({authedUser, qid, answer})))
+        return _saveQuestionAnswer(info)
+            .then(() => dispatch(saveAnswer({qid, answer, authedUser})))
                 .then(() => dispatch(hideLoading()))
     }
 }

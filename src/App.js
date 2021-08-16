@@ -22,17 +22,11 @@ class App extends Component {
         <Fragment>
         <LoadingBar />
         <div className="container">
-          <Nav />
-          {
-            this.props.loading === true
-            ? null
-            : <div>
-                <Route path='/' exact component={Home}/>
-                <Route path='/new' component={NewQuestion}/>
-                <Route path='/leader' component={LeaderBoard}/>
-                <Route path='/question/:id' component={QuestionPage}/>
-              </div>
-          }
+          <Nav/>
+          <Route path='/' exact component={Home}/>
+          <Route path='/new' component={NewQuestion}/>
+          <Route path='/leader' component={LeaderBoard}/>
+          <Route path='/questions/:id' component={QuestionPage}/>
           <Route path='/login' component={Login}/>
         </div>
         </Fragment>
@@ -41,10 +35,4 @@ class App extends Component {
   }
 }
 
-function mapStateToProps ({ authedUser }) {
-  return {
-    loading: authedUser === null
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default connect()(App)
