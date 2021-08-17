@@ -29,16 +29,18 @@ class Answered extends Component {
                         <img src={avatarURL} alt=''/> 
                     </div>
                     <div className='text'>
-                        <div>
+                        <div className='poll'>
                             <h4>Would you rather</h4>
                             <p>{optionOne.text}</p>
+                            <p>{Math.round((optionOne.votes.length/total)*100)}% of People Voted for that Option</p>
                             <div className={`meter ${one ? 'answer' : ''}`}>
-                                <span style={{width: `${(optionOne.votes.length/total)*100}%`}}></span>
+                                <span style={{width: `${(optionOne.votes.length/total)*100}%`}}>{optionOne.votes.length > 0 ? optionOne.votes.length : ''}</span>
                             </div>
                             <br/>
                             <p>{optionTwo.text}</p>
+                            <p>{Math.round((optionTwo.votes.length/total)*100)}% of People Voted for that Option</p>
                             <div className={`meter ${two ? 'answer' : ''}`}>
-                                <span style={{width: `${(optionTwo.votes.length/total)*100}%`}}></span>
+                                <span style={{width: `${(optionTwo.votes.length/total)*100}%`}}>{optionTwo.votes.length > 0 ? optionTwo.votes.length : ''}</span>
                             </div>
                         </div>
                     </div>

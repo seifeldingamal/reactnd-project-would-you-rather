@@ -1,36 +1,31 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser'
 import logo from '../img/redux-react.png'
 
 class Login extends Component {
 
     state = {
-        value: 'notselected',
-        toHome: false,
+        value: '',
     }
 
     handleChange = (e) => {
-        const value = e.target.value
-        this.setState(() => ({
-            value,
-        }))
+        this.setState({ value: e.target.value })
+        this.props.dispatch(setAuthedUser(e.target.value))
     }
 
     handleLogin = (e) => {
         e.preventDefault()
 
-        const { dispatch } = this.props
-        const { value } = this.state
+        const { location } = this.props
 
-        if (value !== 'notselected') {
-            dispatch(setAuthedUser(value))
+        const { state } = location
 
-            this.setState(() => ({
-                value: 'notselected',
-                toHome: value !== 'notselected' ? true : false
-            }))
+        if (this.state.value) {
+            if (state.from.pathname)
+                this.props.history.push(state.from.pathname)
+            else
+                this.props.history.push('/')
         } else {
             alert('Please Select a User!')
         }
@@ -38,14 +33,7 @@ class Login extends Component {
     }
     
     render() {
-        const { users } = this.props
-        const { toHome } = this.state
-
-        if (toHome === true || this.props.authedUser !== null) {
-            return (
-                <Redirect to='/home'/>
-            )
-        }
+        const { users} = this.props
 
         return (
             <div className='container'>
@@ -72,10 +60,9 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps ({ users, authedUser }) {
+function mapStateToProps ({ users }) {
     return {
       users,
-      authedUser
     }
 }
 

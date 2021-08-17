@@ -1,14 +1,11 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInitialData } from './actions/shared';
-import Nav from './components/Nav'
-import Home from './views/Home';
 import Login from './views/Login';
-import NewQuestion from './views/NewQuestion';
-import QuestionPage from './views/QuestionPage';
-import LeaderBoard from './views/LeaderBoard';
 import LoadingBar from 'react-redux-loading';
+import ProtectedRoute from './protected.route';
+import Layout from './App.layout';
 
 class App extends Component {
 
@@ -22,12 +19,19 @@ class App extends Component {
         <Fragment>
         <LoadingBar />
         <div className="container">
-          <Nav/>
-          <Route path='/home' component={Home}/>
-          <Route path='/add' component={NewQuestion}/>
-          <Route path='/leaderboard' component={LeaderBoard}/>
-          <Route path='/questions/:id' component={QuestionPage}/>
-          <Route path='/' exact component={Login}/>
+          <Switch>
+            <Route 
+              exact 
+              path='/login'
+              name='Login'
+              render={(props) => <Login {...props} />}
+            />
+            <ProtectedRoute 
+              path='/'
+              name='App'
+              component={Layout}  
+            />
+          </Switch>
         </div>
         </Fragment>
       </BrowserRouter>
@@ -35,4 +39,10 @@ class App extends Component {
   }
 }
 
-export default connect()(App)
+const mapStateToProps = ({ authedUser }) => {
+  return {
+    authedUser,
+  }
+}
+
+export default connect(mapStateToProps)(App)

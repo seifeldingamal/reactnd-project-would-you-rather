@@ -9,14 +9,14 @@ const Nav = (props) => {
     const history = useHistory()
     const unSetAuthed = () => {
         dispatch(unSetAuthedUser())
-        history.push('/')
+        history.push('/login')
     }
 
     return (
         <div className='nav'>
         <ul>
             <li>
-                <NavLink to='/home' activeClassName='active'>
+                <NavLink to='/' exact activeClassName='active'>
                     Home
                 </NavLink>
             </li>
@@ -26,7 +26,7 @@ const Nav = (props) => {
                 </NavLink>
             </li>
             <li>
-                <NavLink to='/leaderboard' exact activeClassName='active'>
+                <NavLink to='/leaderboard' activeClassName='active'>
                     Leader Board
                 </NavLink>
             </li>
@@ -38,13 +38,13 @@ const Nav = (props) => {
                         <img src={user.avatarURL} alt=''/>
                     </div>
                     <p>{user.name},&nbsp;</p>
-                    <NavLink onClick={unSetAuthed} to='/' exact activeClassName='active'>
+                    <NavLink onClick={unSetAuthed} to='/login' exact activeClassName='active'>
                         Logout
                     </NavLink>
                 </li>
                 :
                 <li>
-                    <NavLink to='/' exact activeClassName='active'>
+                    <NavLink to='/login' exact activeClassName='active'>
                         Login
                     </NavLink>
                 </li>

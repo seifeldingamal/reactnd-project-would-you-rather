@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 import HomeQuestion from '../components/HomeQuestion'
 
 class Home extends Component {
@@ -18,9 +18,9 @@ class Home extends Component {
     
     render() {
 
-        if (this.props.authedUser === null) {
+/*         if (this.props.authedUser === null) {
             return <Redirect to='/'/>
-        }
+        } */
         
         const { active } = this.state 
         const { answered, unanswered } = this.props
@@ -29,19 +29,19 @@ class Home extends Component {
             <div>
                 <div className='top'>
                     <ul>
-                        <li onClick={this.handleActive} className={active ? 'home-active' : ''}>Answered Questions</li>
-                        <li onClick={this.handleActive} className={!active ? 'home-active' : ''}>Unanswered Questions</li>
+                        <li onClick={this.handleActive} className={active ? 'home-active' : ''}>Unanswered Questions</li>
+                        <li onClick={this.handleActive} className={!active ? 'home-active' : ''}>Answered Questions</li>
                     </ul>
                 </div>
                 <div  className='component'>
                     {
                         active 
                         ? 
-                        answered.map((id) => (
+                        unanswered.map((id) => (
                             <HomeQuestion key={id} id={id}/>
                         ))
                         :
-                        unanswered.map((id) => (
+                        answered.map((id) => (
                             <HomeQuestion key={id} id={id}/>
                         ))
                     }
@@ -52,20 +52,13 @@ class Home extends Component {
 }
 
 function mapStateToProps ({ authedUser, users, questions }) {
-    
-    if (authedUser !== null) {
-        const unanswered = Object.keys(questions).filter((id) => !users[authedUser].answers.hasOwnProperty(id)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
-        const answered = Object.keys(questions).filter((id) => users[authedUser].answers.hasOwnProperty(id)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
-    
-        return {
-            authedUser,
-            unanswered,
-            answered,
-        }
-    } else {
-        return {
-            authedUser
-        }
+    const unanswered = Object.keys(questions).filter((id) => !users[authedUser].answers.hasOwnProperty(id)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+    const answered = Object.keys(questions).filter((id) => users[authedUser].answers.hasOwnProperty(id)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+
+    return {
+        authedUser,
+        unanswered,
+        answered,
     }
 }
 

@@ -40,15 +40,17 @@ class NewQuestion extends Component {
     }
 
     render() {
-        if (this.props.authedUser === null) {
+/*         if (this.props.authedUser === null) {
             return <Redirect to='/'/>
-        }
+        } */
         
         const { one, two, toHome } = this.state
 
-        if (toHome === true || this.props.authedUser === null) {
+        if (toHome === true 
+            // || this.props.authedUser === null
+            ) {
             return (
-                <Redirect to='/home'/>
+                <Redirect to='/'/>
             )
         }
 

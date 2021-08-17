@@ -45,7 +45,7 @@ body {
 }
 
 .nav li {
-  font-size: 1.2vw;
+  font-size: 1.2rem;
   font-weight: bold;
   list-style-type: none;
   padding: 10px;
@@ -88,7 +88,7 @@ body {
 
 .component .header span {
   padding: 20px;
-  font-size: 1.5vw;
+  font-size: 1.5rem;
 }
 
 .component .main {
@@ -100,18 +100,15 @@ body {
 }
 
 .component .main img {
-  width: 50%;
-  height: 50%;
+  width: 40%;
+  height: 40%;
 }
 
 .component .main select {
   padding: 15px;
-  text-align-last:right;
   width: 100%;
-  padding-right: 37%;
-  direction: rtl;
   margin-bottom: 2%;
-  font-size: 1.5vw;
+  font-size: 1rem;
 }
 
 .component .main button {
@@ -120,7 +117,7 @@ body {
   background-color: #764ABD;
   border: 0px;
   font-weight: bold;
-  font-size: 1.5vw;
+  font-size: 1rem;
 }
 
 .home-active {
@@ -154,7 +151,7 @@ body {
 }
 
 .top li {
-  font-size: 1.5vw;
+  font-size: 1rem;
   font-weight: bold;
   list-style-type: none;
   padding: 10px;
@@ -174,7 +171,7 @@ body {
 .home-question .card-header {
   text-align: left;
   font-weight: bold;
-  font-size: 0.2vm;
+  font-size: 0.8rem;
   padding: 9px;
   border-bottom: 1px solid #b3b3b3;
 }
@@ -300,10 +297,20 @@ body {
   border: 3px solid green;
 }
 
+.poll h4 {
+  font-size: 1.2rem;
+  text-align: left;
+  padding: 4%;
+}
+
+.poll p {
+  padding: 5px;
+}
+
 .meter {
   margin: auto;
   width: 90%;
-  height: 20px;
+  height: 30px;
   background: #555;
   border-radius: 25px;
 }
@@ -311,6 +318,8 @@ body {
 .meter > span {
   display: block;
   height: 100%;
+  font-size: 1rem;
+  color: #fff;
   border-radius: 25px;
   background-color: #764ABD;
   box-shadow: 
