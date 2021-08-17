@@ -21,12 +21,12 @@ const Nav = (props) => {
                 </NavLink>
             </li>
             <li>
-                <NavLink to='/new' activeClassName='active'>
+                <NavLink to='/add' activeClassName='active'>
                     New Question
                 </NavLink>
             </li>
             <li>
-                <NavLink to='/leader' exact activeClassName='active'>
+                <NavLink to='/leaderboard' exact activeClassName='active'>
                     Leader Board
                 </NavLink>
             </li>
