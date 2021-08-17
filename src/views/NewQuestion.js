@@ -36,7 +36,7 @@ class NewQuestion extends Component {
                 toHome: true,
             })
         } else 
-            alert('Answers are too short')
+            alert('Answers are too short!')
     }
 
     render() {

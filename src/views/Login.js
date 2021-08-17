@@ -24,12 +24,17 @@ class Login extends Component {
         const { dispatch } = this.props
         const { value } = this.state
 
-        dispatch(setAuthedUser(value))
+        if (value !== 'notselected') {
+            dispatch(setAuthedUser(value))
 
-        this.setState(() => ({
-            value: 'notselected',
-            toHome: value !== 'notselected' ? true : false
-        }))
+            this.setState(() => ({
+                value: 'notselected',
+                toHome: value !== 'notselected' ? true : false
+            }))
+        } else {
+            alert('Please Select a User!')
+        }
+
     }
     
     render() {
