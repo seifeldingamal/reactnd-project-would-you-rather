@@ -88,7 +88,7 @@ body {
 
 .component .header span {
   padding: 20px;
-  font-size: 2.5vw;
+  font-size: 1.5vw;
 }
 
 .component .main {
@@ -111,7 +111,7 @@ body {
   padding-right: 37%;
   direction: rtl;
   margin-bottom: 2%;
-  font-size: 2.5vw;
+  font-size: 1.5vw;
 }
 
 .component .main button {
@@ -120,7 +120,7 @@ body {
   background-color: #764ABD;
   border: 0px;
   font-weight: bold;
-  font-size: 2.5vw;
+  font-size: 1.5vw;
 }
 
 .home-active {
