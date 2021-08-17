@@ -30,7 +30,7 @@ class Home extends Component {
                 <div className='top'>
                     <ul>
                         <li onClick={this.handleActive} className={active ? 'home-active' : ''}>Answered Questions</li>
-                        <li onClick={this.handleActive} className={!active ? 'home-active' : ''}>unanswered Questions</li>
+                        <li onClick={this.handleActive} className={!active ? 'home-active' : ''}>Unanswered Questions</li>
                     </ul>
                 </div>
                 <div  className='component'>
