@@ -23,11 +23,11 @@ class App extends Component {
         <LoadingBar />
         <div className="container">
           <Nav/>
-          <Route path='/' exact component={Home}/>
+          <Route path='/home' component={Home}/>
           <Route path='/new' component={NewQuestion}/>
           <Route path='/leader' component={LeaderBoard}/>
           <Route path='/questions/:id' component={QuestionPage}/>
-          <Route path='/login' component={Login}/>
+          <Route path='/' exact component={Login}/>
         </div>
         </Fragment>
       </BrowserRouter>

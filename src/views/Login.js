@@ -38,7 +38,7 @@ class Login extends Component {
 
         if (toHome === true || this.props.authedUser !== null) {
             return (
-                <Redirect to='/'/>
+                <Redirect to='/home'/>
             )
         }
 

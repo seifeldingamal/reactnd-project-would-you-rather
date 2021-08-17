@@ -16,7 +16,7 @@ body {
   color: #764ABD;
   border-top: 3px solid #764ABD;
   border-left: 3px solid #764ABD;
-  border-radius: 15%;
+  border-radius: 25px;
 
 }
 
@@ -45,7 +45,7 @@ body {
 }
 
 .nav li {
-  font-size: 1.1rem;
+  font-size: 1.5vw;
   font-weight: bold;
   list-style-type: none;
   padding: 10px;
@@ -78,8 +78,8 @@ body {
   padding: 20px;
   border: 2px solid #252525;
   background-color: #fff;
-  border-bottom-left-radius: 3%;
-  border-bottom-right-radius: 3%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .component .header h2 {
@@ -88,7 +88,7 @@ body {
 
 .component .header span {
   padding: 20px;
-  font-size: 1.2rem;
+  font-size: 2.5vw;
 }
 
 .component .main {
@@ -108,10 +108,10 @@ body {
   padding: 15px;
   text-align-last:right;
   width: 100%;
-  padding-right: 46%;
+  padding-right: 37%;
   direction: rtl;
   margin-bottom: 2%;
-  font-size: 1.1rem;
+  font-size: 2.5vw;
 }
 
 .component .main button {
@@ -120,7 +120,7 @@ body {
   background-color: #764ABD;
   border: 0px;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 2.5vw;
 }
 
 .home-active {
@@ -154,7 +154,7 @@ body {
 }
 
 .top li {
-  font-size: 0.9rem;
+  font-size: 2.5vw;
   font-weight: bold;
   list-style-type: none;
   padding: 10px;
@@ -165,17 +165,16 @@ body {
   cursor: pointer;
 }
 
-.home-question,
-.leader-card {
+.home-question {
   border: 1px solid #b3b3b3;
-  border-radius: 5%;
+  border-radius: 25px;
   margin: 1.5%;
 }
 
 .home-question .card-header {
   text-align: left;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 0.2vm;
   padding: 9px;
   border-bottom: 1px solid #b3b3b3;
 }
@@ -232,6 +231,23 @@ body {
   padding: 15px;
 }
 
+.leader-card {
+  border-radius: 25px;
+  margin: 1.5%;
+}
+
+.leader-card:first-child {
+  border: 4px solid gold;
+}
+
+.leader-card:nth-child(2) {
+  border: 4px solid silver;
+}
+
+.leader-card:nth-child(3) {
+  border: 4px solid #967444;
+}
+
 .leader-card .card-main {
   display: flex;
   flex-direction: row;
@@ -262,7 +278,7 @@ body {
 .leader-card .score-value {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;  
+  justify-content:  center;
   height: 60%;
   width: 60%;
   border: 1px solid #b3b3b3;
@@ -270,12 +286,14 @@ body {
 
 .leader-card h5 {
   font-weight: bolder;
-  padding: 10px;
+  padding: auto;
+  padding-bottom: 10%;
   border-bottom: 1px solid #b3b3b3;
 }
 
 .leader-card .score p {
-  padding: 10px;
+  padding: auto;
+  padding-top: 10%;
 }
 
 .answer {
@@ -293,10 +311,7 @@ body {
 .meter > span {
   display: block;
   height: 100%;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 25px;
   background-color: #764ABD;
   box-shadow: 
     inset 0 2px 9px  rgba(255,255,255,0.3),

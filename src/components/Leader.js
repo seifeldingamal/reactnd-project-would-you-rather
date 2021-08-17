@@ -1,22 +1,29 @@
 import React from 'react'
-import avatar from '../img/avatar1.png'
+import { connect } from 'react-redux'
 
-const Leader = () => {
+const Leader = (props) => {
+
+    const { user } = props
+    const { name, avatarURL, answers, questions } = user
+    const aCount = Object.keys(answers).length
+    const qCount = Object.keys(questions).length
+    const total = qCount + aCount
+
     return (
         <div className='leader-card'>
             <div className='card-main'>
                 <div className='avatar'>
-                    <img src={avatar} alt=''/> 
+                    <img src={avatarURL} alt=''/> 
                 </div>
                 <div className='text'>
-                    <h3>User Last</h3>
-                    <p>Answered Questions</p>
-                    <p>Created Questions</p>
+                    <h3>{name}</h3>
+                    <p>Answered Questions: {aCount}</p>
+                    <p>Created Questions: {qCount}</p>
                 </div>
                 <div className='score'>
                     <div className='score-value'>
                         <h5>Score</h5>
-                        <p>15</p>
+                        <p>{total}</p>
                     </div>
                 </div>  
             </div>
@@ -24,4 +31,13 @@ const Leader = () => {
     )
 }
 
-export default Leader
+function mapStateToProps ({ users }, { id }) {
+
+    const user = users[id]
+
+    return {
+      user
+    }
+}
+
+export default connect(mapStateToProps)(Leader)

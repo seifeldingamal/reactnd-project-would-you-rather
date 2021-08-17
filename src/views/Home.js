@@ -19,7 +19,7 @@ class Home extends Component {
     render() {
 
         if (this.props.authedUser === null) {
-            return <Redirect to='/login'/>
+            return <Redirect to='/'/>
         }
         
         const { active } = this.state 
@@ -53,7 +53,7 @@ class Home extends Component {
 
 function mapStateToProps ({ authedUser, users, questions }) {
     
-    if (authedUser) {
+    if (authedUser !== null) {
         const unanswered = Object.keys(questions).filter((id) => !users[authedUser].answers.hasOwnProperty(id)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
         const answered = Object.keys(questions).filter((id) => users[authedUser].answers.hasOwnProperty(id)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
     
@@ -62,7 +62,11 @@ function mapStateToProps ({ authedUser, users, questions }) {
             unanswered,
             answered,
         }
-    } else return null
+    } else {
+        return {
+            authedUser
+        }
+    }
 }
 
 export default connect(mapStateToProps)(Home)

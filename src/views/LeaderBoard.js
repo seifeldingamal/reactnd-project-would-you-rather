@@ -1,24 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 import Leader from '../components/Leader'
 
-class LeaderBoard extends Component {
-    render() {
-        if (this.props.authedUser === null) {
-            return <Redirect to='/login'/>
-        }
-        return (
-            <div className='component'>
-                <Leader />
-            </div>
-        )
-    }
+const LeaderBoard = (props) => {
+    const { top } = props
+    return (
+        <div className='component'>
+            {
+                top.map((id) => (
+                    <Leader key={id} id={id}/>
+                ))
+            }
+        </div>
+    )
 }
 
-function mapStateToProps ({ authedUser }) {
+function mapStateToProps ({ authedUser, users }) {
+
+    const top = Object.keys(users).sort((a,b) => 
+        (Object.keys(users[b].answers).length + Object.keys(users[b].questions).length) 
+        - 
+        (Object.keys(users[a].answers).length + Object.keys(users[a].questions).length)
+    )
+
     return {
-      authedUser
+      authedUser,
+      top
     }
 }
 
