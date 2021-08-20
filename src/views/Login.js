@@ -22,7 +22,7 @@ class Login extends Component {
         const { state } = location
 
         if (this.state.value) {
-            if (state.from.pathname)
+            if (state)
                 this.props.history.push(state.from.pathname)
             else
                 this.props.history.push('/')
